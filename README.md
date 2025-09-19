@@ -18,5 +18,5 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 
 <h2>List of Prerequisites</h2>
 
-- Active Directory Home Lab (Client & Server)
+- Active Directory Lab (Client & Server)
 - Client Machine joined the Domain

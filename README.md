@@ -25,7 +25,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 
 <h3>A-Record Exercise</h3>
 <p>
-  1. Connect/log into DC-1 as your domain admin account (mydomain.com\jane_admin)
+  1. Connect/log into DC-1 as your Domain Admin account (mydomain.com\jane_admin)
   
   2. Connect/log into Client-1 as an admin (mydomain\jane_admin)
   
@@ -46,7 +46,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
   Therefore, it appears that the name “mainframe” is not found in any of these three.  
 </p>
 <p>
-  5. Go to DNS Manager on DC-1, and create a DNS A-record on DC-1 for “mainframe” and have it point to DC-1’s Private IP address, (10.0.0.4) 
+  5. Go to DNS Manager on DC-1, and create a DNS A-record on DC-1 for “mainframe” and have it point to DC-1’s Private IP address, (10.0.0.4).
 </p>
 <p>
   <img src="https://i.imgur.com/xkjOzEw.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>

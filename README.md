@@ -10,7 +10,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
-- DNS
+- DNS Manager
 - Powershell
 
 <h2>Operating Systems Used</h2>
@@ -24,10 +24,10 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 - Client Machine joined the Domain
 <br />
 
-<h3>A-Record Exercise</h3>
+<h3>A-Record exercise</h3>
 <p>
   1. Connect/log into DC-1 as your Domain Admin account (mydomain.com\jane_admin)
-  
+
   2. Connect/log into Client-1 as an admin (mydomain\jane_admin)
   
   3. From Client-1, try to ping “mainframe” (Random Name) from Powershell. Notice that it fails.
@@ -61,8 +61,60 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 </p>
 <br />
 
-<h3>Local DNS Cache Exercise</h3>
+<h3>Local DNS Cache exercise</h3>
 <p>
   7. Go back to DC-1 and change the "mainframe’s" record IP address to (8.8.8.8). 
+</p>
+<p>
+  <img src="https://i.imgur.com/pjvhP6v.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  8. Go back to Client-1 and ping “mainframe” again. Observe that it still pings the old address.
+</p>
+<p>
+  <img src="https://i.imgur.com/Tlf0WAL.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
+  Mainframe’s IP Address still points to 10.0.0.4.
+</p>
+<p>
+  9. Observe the local DNS cache with the command (ipconfig /displaydns).
+</p>
+<p>
+  <img src="https://i.imgur.com/8pFkbxV.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  It's A (Host) Record still says address 10.0.0.4, that’s a problem, it should be 8.8.8.8 after the changes we made in the DNS server.
+
+  Here's how we troubleshoot it❗
+</p>
+<p>
+  10. Flush the DNS cache with the command (ipconfig /flushdns) to refresh or update.
+
+  - To flush the DNS cache, we need to use PowerShell as an Admin.
+</p>
+<p>
+  <img src="https://i.imgur.com/jsGO0le.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  11. Observe that the cache is empty with the command (ipconfig /displaydns).
+</p>
+<p>
+  <img src="https://i.imgur.com/RDlrYyJ.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  12. Attempt to ping “mainframe” again. Observe that the address of the new record is showing up, which is 8.8.8.8
+</p>
+<p>
+  <img src="https://i.imgur.com/S0y2vDj.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  This shows why the “ipconfig /flush” command is good to use. If someone in the organization can’t access the same resources as everyone else, it sometimes may have something to do with the DNS and Local Cache. 
+  
+  It would be best to try refreshing or updating the DNS cache. 
+</p>
+<br />
+
+<h3>CNAME Record exercise </h3>
+<p>
+  13. Go back to DC-1 and create a CNAME record that points the host “search” to “www.google.com”.
 </p>
 

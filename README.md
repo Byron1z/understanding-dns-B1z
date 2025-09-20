@@ -62,6 +62,6 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 
 <h3>Local DNS Cache Exercise</h3>
 <p>
-  7. Go back to DC-1 and change the "mainframe’s" record IP address to 8.8.8.8. 
+  7. Go back to DC-1 and change the "mainframe’s" record IP address to (8.8.8.8). 
 </p>
 

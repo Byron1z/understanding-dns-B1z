@@ -15,6 +15,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 
 <h2>Operating Systems Used</h2>
 
+- Windows Server (22H2)
 - Windows 10 Pro (22H2)
 
 <h2>List of Prerequisites</h2>

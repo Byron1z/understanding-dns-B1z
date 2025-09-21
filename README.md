@@ -107,7 +107,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
   <img src="https://i.imgur.com/S0y2vDj.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-  This shows why the “ipconfig /flush” command is good to use. If someone in the organization can’t access the same resources as everyone else, it sometimes may have something to do with the DNS and Local Cache. 
+  This shows why the “ipconfig /flush” command is good to use. If someone in the organization can’t access the same resources as everyone else, it may have something to do with the DNS and Local Cache. 
   
   It would be best to try refreshing or updating the DNS cache. 
 </p>
@@ -116,5 +116,25 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 <h3>CNAME Record exercise </h3>
 <p>
   13. Go back to DC-1 and create a CNAME record that points the host “search” to “www.google.com”.
+</p>
+<p>
+ <img src="https://i.imgur.com/gIB8cEA.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
+ <img src="https://i.imgur.com/cCWXxSI.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  14. Go back to Client-1 and attempt to Ping “search”, and observe the results of the CNAME record. 
+</p>
+<p>
+  <img src="https://i.imgur.com/xRhK54m.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  15. On Client-1, use the command nslookup “search”, and observe the results of the CNAME record.
+</p>
+<p>
+  <img src="https://i.imgur.com/2At9LqL.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
+</p>
+<br />
+<p>
+  This lab had a high overview of DNS (Domain Name System).
 </p>
 

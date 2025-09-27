@@ -85,7 +85,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
   Mainframe’s IP Address still points to 10.0.0.4.
 </p>
 <p>
-  9. Observe the local DNS cache with the command (ipconfig /displaydns).
+  9. Observe the local DNS cache with the command "ipconfig /displaydns".
 </p>
 <p>
   <img src="https://i.imgur.com/8pFkbxV.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
@@ -96,7 +96,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
   Here's how we troubleshoot it❗
 </p>
 <p>
-  10. Flush the DNS cache with the command (ipconfig /flushdns) to refresh or update.
+  10. Flush the DNS cache with the command "ipconfig /flushdns" to refresh or update.
 
   - To flush the DNS cache, we need to use PowerShell as an Admin.
 </p>
@@ -110,7 +110,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
   <img src="https://i.imgur.com/RDlrYyJ.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-  12. Attempt to ping “mainframe” again. Observe that the address of the new record is showing up, which is 8.8.8.8
+  12. Attempt to Ping “mainframe” again. Observe that the address of the new record is showing up, which is 8.8.8.8
 </p>
 <p>
   <img src="https://i.imgur.com/S0y2vDj.png" height="90%" width="100%" alt="Disk Sanitization Steps"/>
@@ -119,6 +119,33 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
   This shows why the “ipconfig /flush” command is good to use. If someone in the organization can’t access the same resources as everyone else, it may have something to do with the DNS and Local Cache. 
   
   It would be best to try refreshing or updating the DNS cache. 
+</p>
+<h4>Summarize</h4>
+<p>
+  The local DNS cache on a DNS server (or client) is used to temporarily store DNS query results so that future requests for the same domain can be resolved more quickly without querying external DNS servers again.
+
+  🔄 Example Flow:
+
+  1. A user accesses "example.com".
+  2. The DNS server queries the authoritative server and caches:
+      - "example.com", A, 93.184.216.34, TTL=3600
+  3. Another user asks for "example.com" within the hour.
+  4. DNS server responds from its local cache instantly.
+
+  🧹 Cache Maintenance
+
+  - Cached entries expire after TTL (Time to Live).
+  - Admins (and Users) can manually flush the cache if needed (e.g., after DNS changes):
+      - "ipconfig /flushdns"          - Windows (client)
+      - "Clear-DnsServerCache"        - PowerShell (DNS Server)
+      - "rndc flush"                  - BIND (Linux)
+
+  ⚠️ In Active Directory Environments
+
+  In AD-integrated DNS servers:
+
+  - The local cache helps reduce repetitive lookups for internal resources like DCs, LDAP, and Kerberos.
+  - It complements the zone data, which is the authoritative info for the domain.
 </p>
 <br />
 

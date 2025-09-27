@@ -174,9 +174,16 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
   A CNAME record (Canonical Name record) in a DNS server is used to alias one domain name to another. In simpler terms, it tells DNS resolvers:
 
   - “This domain is just another name for that other domain.”
-  - It allows you to point multiple domain names to a single canonical (true) domain name.
+  
+  ✅ 1. Alias One Domain to Another
+  
+  It allows you to point multiple domain names to a single canonical (true) domain name.
 
-  Important Rules & Limitations:
+  ✅ 2. Simplify DNS Management
+
+  If you change the IP address of the canonical domain, you only need to update the A-record of that domain. All CNAMEs pointing to it will automatically follow the change — no need to update multiple A-records.
+  
+  ❗ Important Rules & Limitations:
 
   | ⚠️ Rule / Limitation                        | Explanation                                                                  |
 | ------------------------------------------- | ---------------------------------------------------------------------------- |
@@ -191,7 +198,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
   2. DNS sees a CNAME: www.example.com → "example.com".
   3. DNS then resolves "example.com" (usually via its A-record) to an IP.
   4. Client is sent the final actual IP.
-
+<br />
 🏢 In an Active Directory Environment
 
 CNAME records are not usually used for core AD services (like domain controllers), because:

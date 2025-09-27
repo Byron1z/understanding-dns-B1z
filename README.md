@@ -124,6 +124,17 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 <p>
   The local DNS cache on a DNS server (or client) is used to temporarily store DNS query results so that future requests for the same domain can be resolved more quickly without querying external DNS servers again.
 
+  A DNS server's local cache can contain/store:
+  | Record Type | Purpose                            |
+  | ----------- | ---------------------------------- |
+  | A           | IPv4 address for a domain          |
+  | AAAA        | IPv6 address for a domain          |
+  | CNAME       | Canonical name (alias) mapping     |
+  | SRV         | Service records (used by AD, VoIP) |
+  | MX          | Mail exchange servers              |
+  | NS          | Name server for a domain           |
+
+  <br />
   🔄 Example Flow:
 
   1. A user accesses "example.com".

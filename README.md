@@ -183,6 +183,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 
   If you change the IP address of the canonical domain, you only need to update the A-record of that domain. All CNAMEs pointing to it will automatically follow the change — no need to update multiple A-records.
   
+  <br />
   ❗ Important Rules & Limitations:
 
   | ⚠️ Rule / Limitation                        | Explanation                                                                  |
@@ -212,7 +213,8 @@ However, CNAMEs might still be used for:
   - Non-AD-related web services hosted internally or externally
 </p>
 <br />
+<h3>Conclusion</h3>
 <p>
-  This lab had a high overview of DNS (Domain Name System).
+  This lab provided an overview of DNS (Domain Name System) using Active Directory Setup.
 </p>
 

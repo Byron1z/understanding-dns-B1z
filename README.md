@@ -131,17 +131,17 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
       - "example.com", A, 93.184.216.34, TTL=3600
   3. Another user asks for "example.com" within the hour.
   4. DNS server responds from its local cache instantly.
-
-  🧹 Cache Maintenance
+  <br />
+  🧹 Cache Maintenance:
 
   - Cached entries expire after TTL (Time to Live).
   - Admins (and Users) can manually flush the cache if needed (e.g., after DNS changes):
       - "ipconfig /flushdns"          - Windows (client)
       - "Clear-DnsServerCache"        - PowerShell (DNS Server)
       - "rndc flush"                  - BIND (Linux)
-
+  <br />
   ⚠️ In Active Directory Environments
-
+  
   In AD-integrated DNS servers:
 
   - The local cache helps reduce repetitive lookups for internal resources like DCs, LDAP, and Kerberos.
@@ -174,6 +174,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
   A CNAME record (Canonical Name record) in a DNS server is used to alias one domain name to another. In simpler terms, it tells DNS resolvers:
 
   - “This domain is just another name for that other domain.”
+  - It allows you to point multiple domain names to a single canonical (true) domain name.
 
   Important Rules & Limitations:
 
@@ -187,8 +188,8 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 🔄 How CNAME Resolution Works:
 
   1. A client requests www.example.com.
-  2. DNS sees a CNAME: www.example.com → example.com.
-  3. DNS then resolves example.com (usually via its A-record) to an IP.
+  2. DNS sees a CNAME: www.example.com → "example.com".
+  3. DNS then resolves "example.com" (usually via its A-record) to an IP.
   4. Client is sent the final actual IP.
 
 🏢 In an Active Directory Environment

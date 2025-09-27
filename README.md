@@ -128,7 +128,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 
   1. A user accesses "example.com".
   2. The DNS server queries the authoritative server and caches:
-      - "example.com", A, 93.184.216.34, TTL=3600
+      - "example.com", A, 93.184.216.34, TTL = 3600
   3. Another user asks for "example.com" within the hour.
   4. DNS server responds from its local cache instantly.
   <br />

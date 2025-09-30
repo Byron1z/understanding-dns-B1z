@@ -26,6 +26,7 @@ In this lab, we will experiment with DNS using the Active Directory Lab. This la
 
 <h3>A-Record exercise</h3>
 <p>
+  
   1. Connect/log into DC-1 as your Domain Admin account (mydomain.com\jane_admin)
 
   2. Connect/log into Client-1 as an admin (mydomain\jane_admin)
